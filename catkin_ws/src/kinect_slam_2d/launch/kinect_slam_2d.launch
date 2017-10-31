@@ -1,0 +1,57 @@
+<launch>
+	
+	<!-- Launch the openni_launch file to start publishing all of the kinect topics -->
+	<include file="$(find openni_launch)/launch/openni.launch" />
+
+	<!-- Start publishing the laser scan topic to /scan -->
+	<node pkg="depthimage_to_laserscan" name="depthimage_to_laserscan" type="depthimage_to_laserscan" respawn="true" output="screen" args="image:=/camera/depth/image_raw" >
+		<param name="range_min" type="double" value="0.5" />
+		<param name="range_max" type="double" value="5.0" />
+		<param name="scan_time" type="double" value="0.033" />
+		<param name="output_frame_id" type="string" value="kinect" />
+		</node>
+
+	<!-- Start publishing the transforms that gmapping needs-->
+	<node pkg="kinect_slam_2d" name="kinect_in_baselink_publisher" type="kinect_in_baselink_publisher.py" respawn="true" output="screen" />
+
+	<!-- Now run the gmapping node -->
+	<node pkg="gmapping" name="slam_gmapping" type="slam_gmapping" output="screen" >
+		<param name="scan" value="/scan" />
+		<param name="base_frame" value="base_link" />
+		<param name="odom_frame" value="odom" />
+		<param name="map_frame" value="map" />
+
+		<!-- Params from here: http://www.hessmer.org/blog/2011/04/10/2d-slam-with-ros-and-kinect/ -->
+		<param name="map_update_interval" value="1.0"/>
+        <param name="maxUrange" value="5.0"/>
+        <param name="sigma" value="0.05"/>
+        <param name="kernelSize" value="1"/>
+        <param name="lstep" value="0.05"/>
+        <param name="astep" value="0.05"/>
+        <param name="iterations" value="5"/>
+        <param name="lsigma" value="0.075"/>
+        <param name="ogain" value="3.0"/>
+        <param name="lskip" value="0"/>
+        <param name="minimumScore" value="500.0" />
+        <param name="srr" value="0.01"/>
+        <param name="srt" value="0.05"/>
+        <param name="str" value="0.05"/>
+        <param name="stt" value="0.01"/>
+        <param name="linearUpdate" value="0.5"/>     
+        <param name="angularUpdate" value="0.2"/>
+        <param name="temporalUpdate" value="-1.0"/>
+        <param name="resampleThreshold" value="0.5"/>
+        <param name="particles" value="300"/>
+        <param name="xmin" value="-50.0"/>
+        <param name="ymin" value="-50.0"/>
+        <param name="xmax" value="50.0"/>
+        <param name="ymax" value="50.0"/>
+        <param name="delta" value="0.05"/>
+        <param name="llsamplerange" value="0.01"/>
+        <param name="llsamplestep" value="0.01"/>
+        <param name="lasamplerange" value="0.005"/>
+        <param name="lasamplestep" value="0.005"/>
+		</node>
+
+
+</launch>

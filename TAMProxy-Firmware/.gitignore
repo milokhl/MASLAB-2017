@@ -1,0 +1,8 @@
+*.o
+*.d
+*.hex
+*.elf
+# Text editor session files
+*~
+Makefile
+src/config.h

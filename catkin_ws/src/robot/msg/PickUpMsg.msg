@@ -1,0 +1,3 @@
+bool busy
+uint8 num_our_blocks
+uint8 num_opp_blocks

@@ -1,0 +1,3 @@
+int8 pick_up_state
+uint8 num_our_blocks
+uint8 num_opp_blocks

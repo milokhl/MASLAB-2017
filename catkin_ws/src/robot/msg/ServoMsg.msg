@@ -1,0 +1,4 @@
+uint32 grabber_servo_pos
+uint32 elevator_servo_pos
+uint32 skewer_servo_pos
+uint32 door_servo_pos

@@ -1,0 +1,25 @@
+<launch>
+
+	<!-- Run the tamproxy_host node to connect to the robot hardware -->
+	<node pkg="robot" name="tamproxy_host" type="tamproxy_host.py" respawn="false" output="screen" />
+
+	<!-- Run the odometry publisher now that the hardware is connected -->
+	<node pkg="robot" name="odometry_publisher" type="odometry_publisher.py" respawn="true" output="screen" />
+
+	<!-- Run the state controller node -->
+	<node pkg="robot" name="state_controller" type="state_controller.py" respawn="true" output="screen" />
+
+	<!-- Run the vision node -->
+	<node pkg="robot" name="vision" type="vision.py" respawn="true" output="screen" />
+
+	<!-- Run the pick up controller node -->
+	<node pkg="robot" name="pick_up_controller" type="pick_up.py" respawn="true" output="screen" />
+
+	<!-- Run the drive manager node -->
+	<node pkg="robot" name="drive_manager" type="drive.py" respawn="true" output="screen" />
+
+	<!-- Run the drive PID controller -->
+	<node pkg="robot" name="drive_pid_controller" type="drive_pid_controller.py" respawn="true" output="screen" /> 
+
+
+</launch>

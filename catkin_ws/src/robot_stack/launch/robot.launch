@@ -1,0 +1,36 @@
+<launch>
+
+	<!-- Run the joy package to start getting input from gamepad -->
+	<!-- <node pkg="joy" name="joy_node" type="joy_node" respawn="true" output="screen" /> -->
+
+	<!-- Run the gamepad teleop motor publisher -->
+	<!-- <node pkg="robot_teleop" name="robot_teleop" type="gamepad_motor_publisher.py" respawn="true" output="screen" /> -->
+	<!-- Run the tamproxy_host node to connect to the robot hardware -->
+	<node pkg="robot_stack" name="tamproxy_host" type="tamproxy_host.py" respawn="false" output="screen" />
+
+	<!-- Run the odometry publisher now that the hardware is connected -->
+	<node pkg="robot_stack" name="odometry_publisher" type="odometry_publisher.py" respawn="true" output="screen" />
+
+	<!-- Run the state controller node -->
+	<node pkg="robot_stack" name="state_controller" type="state_controller.py" respawn="true" output="screen" />
+
+	<!-- Run the vision node -->
+	<node pkg="robot_stack" name="vision" type="vision.py" respawn="true" output="screen" />
+
+	<!-- Run the block targetting node -->
+	<node pkg="robot_stack" name="block_targeter" type="target_blocks.py" respawn="true" output="screen" />
+
+	<!-- Run the pick up controller node -->
+	<node pkg="robot_stack" name="pick_up_controller" type="pick_up.py" respawn="true" output="screen" />
+
+	<!-- Run the drive PID controller -->
+	<node pkg="robot_stack" name="drive_pid_controller" type="drive_pid_controller.py" respawn="true" output="screen" /> 
+
+	<!-- Launch the kinect_slam_2d launch file -->
+	<!-- <include file="$(find kinect_slam_2d)/launch/kinect_slam_2d.launch" /> -->
+
+	<!-- Launch rviz with the kinect config file -->
+	<!-- <node pkg="rviz" name="rviz_kinect" type="rviz" respawn="false" output="screen" args="-d /home/maslab/Code/team1/kinect-scan-visualizer.rviz" /> -->
+
+
+</launch>
