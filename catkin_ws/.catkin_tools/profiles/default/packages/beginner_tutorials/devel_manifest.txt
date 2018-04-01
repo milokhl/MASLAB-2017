@@ -1,4 +1,0 @@
-beginner_tutorials
-/home/maslab/Code/team1/catkin_ws/devel/.private/beginner_tutorials/lib/pkgconfig/beginner_tutorials.pc /home/maslab/Code/team1/catkin_ws/devel/lib/pkgconfig/beginner_tutorials.pc
-/home/maslab/Code/team1/catkin_ws/devel/.private/beginner_tutorials/share/beginner_tutorials/cmake/beginner_tutorialsConfig.cmake /home/maslab/Code/team1/catkin_ws/devel/share/beginner_tutorials/cmake/beginner_tutorialsConfig.cmake
-/home/maslab/Code/team1/catkin_ws/devel/.private/beginner_tutorials/share/beginner_tutorials/cmake/beginner_tutorialsConfig-version.cmake /home/maslab/Code/team1/catkin_ws/devel/share/beginner_tutorials/cmake/beginner_tutorialsConfig-version.cmake
