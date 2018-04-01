@@ -1,4 +1,0 @@
-bool left_motor_dir
-uint32 left_motor_pwm
-bool right_motor_dir
-uint32 right_motor_pwm

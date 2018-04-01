@@ -1,4 +1,0 @@
-float32 angle
-float32 angular_vel
-float32 angle_callibration
-float32 angular_vel_callibration

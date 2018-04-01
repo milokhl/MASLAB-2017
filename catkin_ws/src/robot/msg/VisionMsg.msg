@@ -1,5 +1,0 @@
-bool block_visible
-bool button_visible
-uint8 block_color
-float32 block_angle
-float32 block_distance
